@@ -14,7 +14,20 @@ import {
     Button
 } from './style'
 
+import { CSSTransition } from 'react-transition-group';
+
 class Header extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            active:false
+        };
+
+        this.hanldeFocus = this.hanldeFocus.bind(this);
+        this.hanldeBlur = this.hanldeBlur.bind(this);
+    }
+
     render(){
         return (
             <HeaderWrapper>
@@ -23,8 +36,17 @@ class Header extends Component {
                     <NavItem className='left active'>首页</NavItem>
                     <NavItem className='left'>下载App</NavItem>
                     <SearchWrapper>
-                        <NavSearch />
-                        <i className='iconfont'>&#xe62b;</i>
+                        <CSSTransition
+                            in={this.state.active}
+                            timeout={200}
+                            classNames="slide"
+                        >
+                        <NavSearch
+                            onFocus={this.hanldeFocus}
+                            onBlur={this.hanldeBlur}
+                            className= {this.state.active ? 'active' : ''}/>
+                        </CSSTransition>
+                        <i className= {this.state.active ? 'iconfont active' : 'iconfont'}>&#xe62b;</i>
                     </SearchWrapper>
                     <NavItem className='right'>登录</NavItem>
                     <NavItem className='right'>
@@ -40,6 +62,18 @@ class Header extends Component {
                 </Addition>
             </HeaderWrapper>
         )
+    }
+
+    hanldeFocus(){
+        this.setState({
+            active:true
+        });
+    }
+
+    hanldeBlur(){
+        this.setState({
+            active:false
+        });
     }
 }
 
