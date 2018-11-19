@@ -55,7 +55,7 @@ const Header = (props)=> {
 
 const mapStateToProps = (state)=> {
     return {
-        active:state.active
+        active:state.header.active
     }
 };
 
