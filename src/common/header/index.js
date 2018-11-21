@@ -14,6 +14,7 @@ import {
     Button
 } from './style'
 import { CSSTransition } from 'react-transition-group';
+import { actionCreators } from './store';
 import { connect } from 'react-redux';
 
 const Header = (props)=> {
@@ -62,16 +63,10 @@ const mapStateToProps = (state)=> {
 const mapDispatchToProps = (dispatch)=> {
     return {
         hanldeFocus(){
-            const action = {
-                type:'search_focus'
-            };
-            dispatch(action);
+            dispatch(actionCreators.searchFocus());
         },
         hanldeBlur(){
-            const action = {
-                type:'search_blur'
-            };
-            dispatch(action);
+            dispatch(actionCreators.searchBlur());
         }
     }
 };

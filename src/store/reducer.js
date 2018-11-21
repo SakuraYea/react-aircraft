@@ -4,7 +4,7 @@
  */
 import { combineReducers } from 'redux';
 
-import HeaderReducers from '../common/header/store';
+import { HeaderReducers } from '../common/header/store';
 
 const reducer = combineReducers({
     header: HeaderReducers
