@@ -9,6 +9,11 @@ import {
     Nav,
     NavItem,
     SearchWrapper,
+    SearchInfo,
+    SearchTitle,
+    SearchInfoSwitch,
+    SearchInfoList,
+    SearchInfoItem,
     NavSearch,
     Addition,
     Button
@@ -16,6 +21,31 @@ import {
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
 import { connect } from 'react-redux';
+
+const searchInfo = (show) => {
+  if(show){
+      return (
+          <SearchInfo>
+              <SearchTitle>
+                  热门搜索
+                  <SearchInfoSwitch>换一批</SearchInfoSwitch>
+              </SearchTitle>
+              <SearchInfoList>
+                  <SearchInfoItem>教育</SearchInfoItem>
+                  <SearchInfoItem>教育</SearchInfoItem>
+                  <SearchInfoItem>教育</SearchInfoItem>
+                  <SearchInfoItem>教育</SearchInfoItem>
+                  <SearchInfoItem>教育</SearchInfoItem>
+                  <SearchInfoItem>教育</SearchInfoItem>
+                  <SearchInfoItem>教育</SearchInfoItem>
+                  <SearchInfoItem>教育</SearchInfoItem>
+              </SearchInfoList>
+          </SearchInfo>
+      )
+  }else {
+      return null;
+  }
+};
 
 const Header = (props)=> {
     return (
@@ -36,6 +66,7 @@ const Header = (props)=> {
                             className= {props.active ? 'active' : ''}/>
                     </CSSTransition>
                     <i className= {props.active ? 'iconfont active' : 'iconfont'}>&#xe62b;</i>
+                    { searchInfo(props.active) }
                 </SearchWrapper>
                 <NavItem className='right'>登录</NavItem>
                 <NavItem className='right'>
@@ -56,7 +87,7 @@ const Header = (props)=> {
 
 const mapStateToProps = (state)=> {
     return {
-        active:state.header.active
+        active:state.getIn(['header','active'])
     }
 };
 
