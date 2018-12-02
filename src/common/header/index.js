@@ -24,7 +24,8 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
     searchInfo() {
-        if(this.props.active){
+        const { active,list } = this.props;
+        if(active){
             return (
                 <SearchInfo>
                     <SearchTitle>
@@ -33,7 +34,7 @@ class Header extends Component {
                     </SearchTitle>
                     <SearchInfoList>
                         {
-                            this.props.list.map(item => {
+                            list.map(item => {
                                return (<SearchInfoItem key={ item }>{ item }</SearchInfoItem>);
                             })
                         }
@@ -45,6 +46,7 @@ class Header extends Component {
         }
     }
     render(){
+        const { active,hanldeFocus,hanldeBlur } = this.props;
         return(
             <HeaderWrapper>
                 <Logo href='/' />
@@ -53,16 +55,16 @@ class Header extends Component {
                     <NavItem className='left'>下载App</NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.props.active}
+                            in={active}
                             timeout={200}
                             classNames="slide"
                         >
                             <NavSearch
-                                onFocus={this.props.hanldeFocus}
-                                onBlur={this.props.hanldeBlur}
-                                className= {this.props.active ? 'active' : ''}/>
+                                onFocus={hanldeFocus}
+                                onBlur={hanldeBlur}
+                                className= {active ? 'active' : ''}/>
                         </CSSTransition>
-                        <i className= {this.props.active ? 'iconfont active' : 'iconfont'}>&#xe62b;</i>
+                        <i className= {active ? 'iconfont active' : 'iconfont'}>&#xe62b;</i>
                         { this.searchInfo() }
                     </SearchWrapper>
                     <NavItem className='right'>登录</NavItem>
