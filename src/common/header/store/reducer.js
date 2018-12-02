@@ -5,7 +5,8 @@
 import * as constants from './constants';
 import { fromJS } from 'immutable';
 const defaultState = fromJS({
-    active:false
+    active:false,
+    list:[]
 });
 
 export default (state = defaultState,action) => {
@@ -14,6 +15,9 @@ export default (state = defaultState,action) => {
     }
     if(action.type === constants.SEARCH_BLUR){
         return state.set('active',false);
+    }
+    if(action.type === constants.CHANGE_LIST){
+        return state.set('list',action.data);
     }
     return state;
 };
