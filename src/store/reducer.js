@@ -5,9 +5,11 @@
 import { combineReducers } from 'redux-immutable';
 
 import { HeaderReducers } from '../common/header/store';
+import { HomeReducers } from '../pages/home/store';
 
 const reducer = combineReducers({
-    header: HeaderReducers
+    header: HeaderReducers,
+    home: HomeReducers
 });
 
 export default reducer;
