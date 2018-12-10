@@ -23,6 +23,13 @@ const defaultState = fromJS({
       title:'MySQL从删库到跑路：顺丰高级工程师跑路被开除之后',
       desc:'9月19 日晚，据微博网友大佬坊间八卦爆料，顺丰的一个高级工程手误把线上系统一个库删除了，导致某项服务无法使用并持续 590 分钟。然后...',
       url:'//upload-images.jianshu.io/upload_images/10878070-b0a17c89c7f0674b.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+    }],
+    recommendList:[{
+      id:1,
+      url:'http://cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png'
+    },{
+      id:2,
+      url:'http://cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png'
     }]
 });
 
