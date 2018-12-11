@@ -7,7 +7,8 @@ import * as contants from "./contants";
 const defaultState = fromJS({
     topicList: [],
     articleList: [],
-    recommendList:[]
+    recommendList:[],
+    pageNo:1
 });
 
 export default (state = defaultState,action) => {
@@ -17,6 +18,11 @@ export default (state = defaultState,action) => {
         topicList: fromJS(action.topicList),
         articleList: fromJS(action.articleList),
         recommendList: fromJS(action.recommendList)
+      });
+    case contants.MORE_LIST_DATA:
+      return state.merge({
+        pageNo: fromJS(action.pageNo),
+        articleList: state.get('articleList').concat(action.list),
       });
     default:
       return state;

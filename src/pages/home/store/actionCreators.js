@@ -4,12 +4,19 @@
  */
 import axios from "axios";
 import * as contants from "./contants";
+import { fromJS } from 'immutable';
 
 const changeHomeData = (result) => ({
   type:contants.CHAGNE_HOME_DATA,
   topicList:result.topicList,
   articleList:result.articleList,
   recommendList:result.recommendList
+});
+
+const moreList = (list,pageNo) => ({
+  type:contants.MORE_LIST_DATA,
+  list:fromJS(list),
+  pageNo:pageNo
 });
 
 export const getHomeInfo = () => {
@@ -20,3 +27,13 @@ export const getHomeInfo = () => {
     })
   }
 };
+
+export const getMoreList = (pageNo) => {
+  return (dispatch) => {
+    axios.get('/api/moreList.json?pageNo' + pageNo).then(res => {
+      const result = res.data.data;
+      console.log(result);
+      dispatch(moreList(result,pageNo+1));
+    })
+  }
+}
