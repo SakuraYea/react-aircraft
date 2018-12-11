@@ -30,7 +30,7 @@ export const getHomeInfo = () => {
 
 export const getMoreList = (pageNo) => {
   return (dispatch) => {
-    axios.get('/api/moreList.json?pageNo' + pageNo).then(res => {
+    axios.get('/api/moreList.json?pageNo=' + pageNo).then(res => {
       const result = res.data.data;
       console.log(result);
       dispatch(moreList(result,pageNo+1));
