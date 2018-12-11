@@ -4,11 +4,14 @@
  */
 
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import {
   HomeWrapper,
   HomeLeft,
   HomeRight
 } from './style';
+
+import { actionCreators } from './store';
 
 import Topic from './components/Topic';
 import List from './components/List';
@@ -31,6 +34,16 @@ class Home extends Component {
       </HomeWrapper>
     )
   }
+
+  componentDidMount() {
+    this.props.changeHomeData();
+  }
 }
 
-export default Home;
+const mapDispatch = (dispatch) => ({
+    changeHomeData() {
+      dispatch(actionCreators.getHomeInfo());
+    }
+});
+
+export default connect(null,mapDispatch)(Home);
