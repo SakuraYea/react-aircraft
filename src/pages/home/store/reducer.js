@@ -8,7 +8,8 @@ const defaultState = fromJS({
     topicList: [],
     articleList: [],
     recommendList:[],
-    pageNo:1
+    pageNo:1,
+    show:false,
 });
 
 export default (state = defaultState,action) => {
@@ -24,6 +25,8 @@ export default (state = defaultState,action) => {
         pageNo: fromJS(action.pageNo),
         articleList: state.get('articleList').concat(action.list),
       });
+    case contants.CHANGE_SCROLL_TOP:
+      return state.set('show',action.show);
     default:
       return state;
   }

@@ -3,6 +3,7 @@
  * @date 2018/11/7 10:48 PM
  */
 import React,{ Component } from 'react';
+import { Link } from "react-router-dom";
 import {
     HeaderWrapper,
     Logo,
@@ -61,7 +62,9 @@ class Header extends Component {
         const { active,list,hanldeFocus,hanldeBlur } = this.props;
         return(
             <HeaderWrapper>
-                <Logo href='/' />
+                <Link to="/">
+                    <Logo/>
+                </Link>
                 <Nav>
                     <NavItem className='left active'>首页</NavItem>
                     <NavItem className='left'>下载App</NavItem>

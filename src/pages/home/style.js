@@ -108,4 +108,17 @@ export const LoadMore = styled.div`
   cursor: pointer;
 `;
 
+export const BackTop = styled.div`
+  position: fixed;
+  right:100px;
+  bottom:100px;
+  width:80px;
+  height:80px;
+  line-height:80px;
+  text-align:center;
+  border:1px solid #ccc;
+  font-size:14px;
+  cursor: pointer;
+`;
+
 

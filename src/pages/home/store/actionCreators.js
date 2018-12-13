@@ -36,4 +36,9 @@ export const getMoreList = (pageNo) => {
       dispatch(moreList(result,pageNo+1));
     })
   }
-}
+};
+
+export const changeScroll = (show) => ({
+  type:contants.CHANGE_SCROLL_TOP,
+  show
+});
