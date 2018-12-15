@@ -6,10 +6,12 @@ import { combineReducers } from 'redux-immutable';
 
 import { HeaderReducers } from '../common/header/store';
 import { HomeReducers } from '../pages/home/store';
+import { DetailReducers } from '../pages/detail/store';
 
 const reducer = combineReducers({
     header: HeaderReducers,
-    home: HomeReducers
+    home: HomeReducers,
+    detail: DetailReducers
 });
 
 export default reducer;

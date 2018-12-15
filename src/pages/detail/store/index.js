@@ -2,9 +2,9 @@
  * @author zhouzh
  * @date 2018/12/5 11:29 PM
  */
-import HomeReducers from './reducer';
+import DetailReducers from './reducer';
 import * as actionCreators from './actionCreators';
 import * as contants from './contants';
 
-export { HomeReducers,actionCreators,contants };
+export { DetailReducers,actionCreators,contants };
 
