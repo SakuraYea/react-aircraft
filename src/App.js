@@ -8,6 +8,7 @@ import store from './store';
 
 import Home from './pages/home';
 import Detail from './pages/detail';
+import Login from './pages/login';
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
                     <Fragment>
                         <Header />
                         <Route path="/" exact component={ Home } />
+                      <Route path="/login" exact component={ Login } />
                         <Route path="/detail/:id" exact component={ Detail } />
                     </Fragment>
                 </BrowserRouter>
