@@ -21,6 +21,7 @@ import {
 } from './style';
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
 import { connect } from 'react-redux';
 
 class Header extends Component {
@@ -59,7 +60,7 @@ class Header extends Component {
         }
     }
     render(){
-        const { active,list,hanldeFocus,hanldeBlur,login } = this.props;
+        const { active,list,hanldeFocus,hanldeBlur,login,logout } = this.props;
         return(
             <HeaderWrapper>
                 <Link to="/">
@@ -84,7 +85,7 @@ class Header extends Component {
                     </SearchWrapper>
                     {
                         login ?
-                          <NavItem className='right'>退出</NavItem> :
+                          <NavItem className='right' onClick={ logout }>退出</NavItem> :
                           <Link to='/login'><NavItem className='right'>登录</NavItem></Link>
                     }
                     <NavItem className='right'>
@@ -117,6 +118,9 @@ const mapStateToProps = (state)=> {
 
 const mapDispatchToProps = (dispatch)=> {
     return {
+        logout(){
+            dispatch(loginActionCreators.logout());
+        },
         hanldeFocus(list){
             (list.size === 0) && dispatch(actionCreators.getList());
             dispatch(actionCreators.searchFocus());

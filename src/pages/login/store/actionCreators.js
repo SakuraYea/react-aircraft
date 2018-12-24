@@ -11,6 +11,11 @@ const changeLogin = () => ({
   value:true
 });
 
+export const logout = ()=> ({
+  type:constants.CHANGE_LOGOUT,
+  value:false
+});
+
 export const login = (accout,password)=> {
   return (dispatch) => {
     axios.get(`/api/login.json?accout=${accout}&password=${password}`).then(res => {

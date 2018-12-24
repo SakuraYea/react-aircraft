@@ -12,6 +12,8 @@ export default (state = defaultState,action) => {
   switch (action.type) {
     case constants.CHANGE_LOGIN:
       return state.set('login',true);
+    case constants.CHANGE_LOGOUT:
+      return state.set('login',false);
     default:
       return state;
   }
