@@ -59,7 +59,7 @@ class Header extends Component {
         }
     }
     render(){
-        const { active,list,hanldeFocus,hanldeBlur } = this.props;
+        const { active,list,hanldeFocus,hanldeBlur,login } = this.props;
         return(
             <HeaderWrapper>
                 <Link to="/">
@@ -82,7 +82,11 @@ class Header extends Component {
                         <i className= {active ? 'iconfont active zoom' : 'iconfont zoom'}>&#xe62b;</i>
                         { this.searchInfo() }
                     </SearchWrapper>
-                    <NavItem className='right'>登录</NavItem>
+                    {
+                        login ?
+                          <NavItem className='right'>退出</NavItem> :
+                          <Link to='/login'><NavItem className='right'>登录</NavItem></Link>
+                    }
                     <NavItem className='right'>
                         <i className='iconfont'>&#xe636;</i>
                     </NavItem>
@@ -107,6 +111,7 @@ const mapStateToProps = (state)=> {
         list:state.getIn(['header','list']),
         page:state.getIn(['header','page']),
         totalPage:state.getIn(['header','totalPage']),
+        login:state.getIn(['login','login'])
     }
 };
 
